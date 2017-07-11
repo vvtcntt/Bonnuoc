@@ -1,0 +1,92 @@
+﻿
+@{
+     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@model Bonnuoc.Models.tblGroupProduct
+ <div id="Main">
+    <div id="MainContent">
+
+        <div class="Root">
+            @Html.Raw(ViewBag.nUrl)
+        </div>
+        <div class="Clear"></div>
+        <div id="Products">
+            <div class="nVarProduct">
+                <div class="Left_Nvar">
+                    <div class="Name">
+                        <span>@Model.Name</span>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="Clear"></div>
+            <div id="Content_Product">
+                <div id="Menu_Product">
+                    <div class="Tear_Menu">
+                        <div class="Nvar_MenuProduct">
+                            Dung tích bồn nước
+                        </div>
+                        <div class="ListMenuProduct">
+                            <ul>
+                               @Html.Raw(ViewBag.chuoicap)
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="List_Product">
+                    @Html.Raw(ViewBag.chuoi)
+                </div>
+            </div>
+            <div id="NoteContent">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+        <div id="Services">
+            <div class="Tear_sv">
+                <div class="Left_sv sv01">
+
+                </div>
+                <div class="Right_sv">
+                    <span class="sv1">Vận chuyển và kéo</span>
+                    <span class="sv2">Miễn phí lên tầng</span>
+                    <span class="sv3">Áp dụng tai Hà Nội, TPHCM và một số tỉnh</span>
+                </div>
+            </div>
+            <div class="Tear_sv">
+                <div class="Left_sv sv02">
+
+                </div>
+                <div class="Right_sv">
+                    <span class="sv1">Tư vấn khảo sát</span>
+                    <span class="sv2">Miễn phí tại nhà</span>
+                    <span class="sv3">Áp dụng tại nội thành Hà Nội, TPHCM</span>
+                </div>
+            </div>
+            <div class="Tear_sv">
+                <div class="Left_sv sv03">
+
+                </div>
+                <div class="Right_sv">
+                    <span class="sv1">Sản xuất bồn nước</span>
+                    <span class="sv2">Theo yêu cầu riêng</span>
+                    <span class="sv3">Với mọi kiểu dáng, kích thước sản phẩm</span>
+                </div>
+            </div>
+            <div class="Tear_sv">
+                <div class="Left_sv sv04">
+
+                </div>
+                <div class="Right_sv">
+                    <span class="sv1">Giá rẻ hơn website</span>
+                    <span class="sv2">Với khách công trình</span>
+                    <span class="sv3">Vui lòng liên hệ hotline</span>
+                </div>
+            </div>
+        </div>
+          
+        <div class="Clear"></div>
+    </div>
+</div>

@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<link href="Style/Order.css" type="text/css" rel="stylesheet" />
+<link href="Style/Order_Rs.css" type="text/css" rel="stylesheet" />
+<link href="Style/Default.css" type="text/css" rel="stylesheet" />
+<link href="Style/Default_Rs.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script> 
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(document).on("click", ".chkvat", function () {
+            var chkvat;
+            if ($(".chkvat:checked").is(':checked')) { chkvat = 'true'; }
+            else { chkvat = 'false'; }
+            if (chkvat == 'true') {
+                $(".ContentVAT").css("display", "block");
+            }
+            else {
+                $(".ContentVAT").css("display", "none");
+
+            }
+        });
+		 $(document).on("click", ".chknhanhang", function () {
+            var chknhanhang;
+            if ($(".chknhanhang:checked").is(':checked')) { chknhanhang = 'true'; }
+            else { chknhanhang = 'false'; }
+            if (chknhanhang == 'true') {
+                $(".Content_Nhanhang").css("display", "block");
+            }
+            else {
+                $(".Content_Nhanhang").css("display", "none");
+
+            }
+        });
+		$(document).on("click", ".rdttck", function () {
+            var rdttck;
+             if ($(".rdttck:checked").is(':checked')) { rdttck = 'true'; }
+            else { rdttck = 'false'; }
+            if (rdttck == 'true') {
+                 $(".ttck").css("display", "block");
+				 $(".tttn").css("display", "none");
+				 $(".ttct").css("display", "none");
+				 $(".ttvs").css("display", "none");
+            }
+            else {
+                $(".ttck").css("display", "none");
+
+            }
+        });
+		$(document).on("click", ".rdtttn", function () {
+            var rdtttn;
+             if ($(".rdtttn:checked").is(':checked')) { rdtttn = 'true'; }
+            else { rdtttn = 'false'; }
+            if (rdtttn == 'true') {
+                $(".ttck").css("display", "none");
+				 $(".tttn").css("display", "block");
+				 $(".ttct").css("display", "none");
+				 $(".ttvs").css("display", "none");
+				
+            }
+            else {
+					$(".tttn").css("display", "none");
+					
+            }
+        });
+		$(document).on("click", ".rdttct", function () {
+            var rdttct;
+             if ($(".rdttct:checked").is(':checked')) { rdttct = 'true'; }
+            else { rdttct = 'false'; }
+            if (rdttct == 'true') {
+                $(".ttck").css("display", "none");
+				 $(".tttn").css("display", "none");
+				 $(".ttct").css("display", "block");
+				 $(".ttvs").css("display", "none");
+            }
+            else {
+ 
+            }
+        });
+		$(document).on("click", ".rdttvs", function () {
+            var rdttvs;
+             if ($(".rdttvs:checked").is(':checked')) { rdttvs = 'true'; }
+            else { rdttvs = 'false'; }
+            if (rdttvs == 'true') {
+               $(".ttck").css("display", "none");
+				 $(".tttn").css("display", "none");
+				 $(".ttct").css("display", "none");
+				 $(".ttvs").css("display", "block");
+            }
+            else {
+                $(".ttck").css("display", "none");
+
+            }
+        });
+    })
+</script>
+    <script type="text/javascript">
+
+ 
+    function UpdateOrd(pId) {
+        var ord = $(".txtOrd" + pId).val();
+
+        $.post("/Order/UpdatOder", { "id": pId, "ord": ord },
+           function (data) {
+               $('#Gia' + pId).html(data.gia + " vnd");
+               $(".tt").html(data.tt);
+               htgh
+               $(".htgh").html("Có " + data.sl + " sản phẩm");
+
+           });
+        return false;
+    }
+    function DeleteOrder(pId) {
+        $.post("/Order/DeleteOrder", { "id": pId },
+           function (data) {
+
+               $('.row' + pId).html(data.thongtin);
+               $(".tt").html(data.tt);
+               $(".count").html(data.count);
+               $(".htgh").html("Có " + data.sl + " sản phẩm");
+
+           });
+        return false;
+    }
+
+    </script>
+    
+</head>
+
+<body>
+<div id="Main">
+<div id="Order">
+	<div id="ListInfoOrder">
+    	<div class="nVar_Order">
+        	<span>Thông tin của bạn</span>
+        </div>
+        <div class="Content_List">
+        	<div class="RowOrd">
+            	<div class="Left_RowOrd">
+                	<span>Họ và tên</span>
+                </div>
+      			<div class="Right_RowOrd">
+                	<input type="text"  placeholder="Nhập họ tên" name="txtName" id="txtName" class="txtName" />
+                </div>
+                	
+	
+            </div>
+            <div class="RowOrd">
+            	<div class="Left_RowOrd">
+                	<span>Điện thoại</span>
+                </div>
+      			<div class="Right_RowOrd">
+                	<input type="tel" placeholder="Số điện thoại" name="txtMobile1" id="txtMobile1" class="txtMobile" />
+                    <input type="tel" placeholder="Số khác - tùy chọn" name="txtMobile2" id="txtMobile2" class="txtMobile" />
+                </div>
+                	
+	
+            </div>
+            <div class="RowOrd">
+            	<div class="Left_RowOrd">
+                	<span>Email</span>
+                </div>
+      			<div class="Right_RowOrd">
+                	<input type="email" placeholder="Nhập email" name="txtEmail" id="txtEmail" class="txtEmail" />
+                </div>
+                	
+	
+            </div>
+            <div class="RowOrd">
+            	<div class="Left_RowOrd">
+                	<span>Địa chỉ</span>
+                </div>
+      			<div class="Right_RowOrd">
+                	 <textarea id="txtAddress" name="txtAddress" class="txtAddress"></textarea>
+                </div>
+                	
+	
+            </div>
+            <div class="VAT">
+            	<div class="row_Vat">
+                	<input type="checkbox" id="chkvat"  name="chkvat" class="chkvat" /> 
+                    <span>Yêu cầu BIGSEA xuất hóa đơn đỏ <span>(VAT)</span> cho công ty hoặc tổ chức</span>
+                    
+                </div>
+                <div class="ContentVAT">
+                	<div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Tên công ty</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                            <input type="text" placeholder="Nhập tên công ty" name="txtNamcompany" id="txtNamcompany" class="txtName" />
+                        </div> 
+            		</div>
+                    <div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Địa chỉ</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                             <textarea id="txtAddressCompany" name="txtAddressCompany" class="txtAddress"></textarea>
+                        </div>
+                       </div>
+                    <div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Mã số thuế</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                            <input type="text" placeholder="Nhập mã số thuế" name="txtMST" id="txtMST" class="txtMST" />
+                        </div> 
+            		</div>
+                    <div class="Clear"></div>
+                    <span class="Note">(*) Khách hàng vui lòng liên hệ hotline để biết đơn hàng có được hỗ trợ VAT hay không !</span>
+                </div>
+            </div>
+            <div class="Clear"></div>
+            <div class="Nhanhang">
+            	<div class="row_nhanhang">
+                	<input type="checkbox" id="chknhanhang"  name="chknhanhang" class="chknhanhang" /> 
+                    <span>Nhận hàng tại địa chỉ khác</span> 
+                </div>
+                <div class="Content_Nhanhang">
+                	<div class="RowOrd">
+            	<div class="Left_RowOrd">
+                	<span>Họ và tên</span>
+                </div>
+      			<div class="Right_RowOrd">
+                	<input type="text" placeholder="Nhập họ tên" name="txtNames" id="txtNames" class="txtName" />
+                </div>
+                	
+	
+            </div>
+                    <div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Điện thoại</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                            <input type="tel" placeholder="Số điện thoại" name="txtMobile1s" id="txtMobile1s" class="txtMobile" />
+                            <input type="tel" placeholder="Số khác - tùy chọn" name="txtMobile2s" id="txtMobile2s" class="txtMobile" />
+                        </div>
+                            
+            
+                    </div>
+                    <div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Email</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                            <input type="email" placeholder="Nhập email" name="txtEmails" id="txtEmails" class="txtEmail" />
+                        </div>
+                            
+            
+                    </div>
+                    <div class="RowOrd">
+                        <div class="Left_RowOrd">
+                            <span>Địa chỉ</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                             <textarea id="txtAddresss" name="txtAddresss" class="txtAddress"></textarea>
+                        </div>
+                            
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="Clear"></div>
+
+                        <a href="" class="timhieu" title="" target="_blank">>> Chính sách bảo mật thông tin</a>
+        <div class="nVar_Order">
+        	<span>Hình thức thanh toán</span>
+        </div>
+        <div class="Thanhtoan"> 
+        	<div class="row_thanhtoan">
+            	<input type="radio" id="rdtt"  name="rdtt"  class="rdtttn" /><span>Giao hàng thu tiền tại nhà</span>
+            </div>
+            <div class="row_thanhtoan">
+            	<input type="radio" id="rdtt" name="rdtt" class="rdttct" /><span>Nhận hàng và thanh toán tại BIGSEA</span>
+            </div>	
+             <div class="row_thanhtoan">
+            	<input type="radio" id="rdtt" name="rdtt" class="rdttck" /><span>Chuyển khoản ATM & Ngân hàng</span>
+            </div>	
+            <div class="row_thanhtoan">
+            	<input type="radio" id="rdtt" name="rdtt" class="rdttvs" /><span>Thanh toán Online bằng thẻ ATM</span>
+            </div>	                    <div class="Clear"></div>
+            <div class="tttn tttt">
+            	<span>Khách hàng vui lòng thanh toán khi đã nhận đủ hàng và ký vào hóa đơn nhận hàng ! </span>
+            </div>
+             <div class="ttct tttt">
+                    <div class="Tear_ttck">
+                                        <div class="Left_Tear_ttck">
+                                            <img src="iCon/vc_bank.jpg" alt="" />
+                                        </div>
+                                        <div class="Right_Tear_ttck">
+                                            <div class="row_ttck">Công ty TNHH BIGSEA Việt Nam</div>
+                                            <div class="row_ttck1"><span class="sp1">Địa chỉ:</span><span class="sp2"> Chi nhánh Vietcombank Thành Công</span>
+                    </div>
+                    <div class="row_ttck1"><span class="sp1">Số điện thoại:</span><span class="sp2"> 09875 0251 21</span>
+                    </div>
+                    <div class="row_ttck1"><span class="sp1">Email:</span><span class="sp2"> Bonnuoc.vn@gmail.com</span>
+                    </div>
+                                        </div>
+                                        <p></p> 
+                                    </div>   
+                         </div>
+            <div class="ttck">
+            	<div class="Tear_ttck">
+                	<div class="Left_Tear_ttck">
+                    	<img src="iCon/vc_bank.jpg" alt="" />
+                    </div>
+                    <div class="Right_Tear_ttck">
+                    	<div class="row_ttck">Ngân hàng cổ phần thương mại việt nam vietcombank</div>
+                        <div class="row_ttck1"><span class="sp1">Chi nhánh:</span><span class="sp2"> Chi nhánh Vietcombank Thành Công</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Chủ TK:</span><span class="sp2"> Công ty cổ phần mạng trực tuyến META</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Số TK:</span><span class="sp2"> 01225452121212</span>
+</div>
+                    </div>
+                    <p></p> 
+                </div>
+                <div class="Tear_ttck">
+                	<div class="Left_Tear_ttck">
+                    	<img src="iCon/vc_bank.jpg" alt="" />
+                    </div>
+                    <div class="Right_Tear_ttck">
+                    	<div class="row_ttck">Ngân hàng cổ phần thương mại việt nam vietcombank</div>
+                        <div class="row_ttck1"><span class="sp1">Chi nhánh:</span><span class="sp2"> Chi nhánh Vietcombank Thành Công</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Chủ TK:</span><span class="sp2"> Công ty cổ phần mạng trực tuyến META</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Số TK:</span><span class="sp2"> 01225452121212</span>
+</div>
+                    </div>
+                    <p></p> 
+                </div>
+                <div class="Tear_ttck">
+                	<div class="Left_Tear_ttck">
+                    	<img src="iCon/vc_bank.jpg" alt="" />
+                    </div>
+                    <div class="Right_Tear_ttck">
+                    	<div class="row_ttck">Ngân hàng cổ phần thương mại việt nam vietcombank</div>
+                        <div class="row_ttck1"><span class="sp1">Chi nhánh:</span><span class="sp2"> Chi nhánh Vietcombank Thành Công</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Chủ TK:</span><span class="sp2"> Công ty cổ phần mạng trực tuyến META</span>
+</div>
+<div class="row_ttck1"><span class="sp1">Số TK:</span><span class="sp2"> 01225452121212</span>
+</div>
+                    </div>
+                    <p></p> 
+                </div>
+                 <div class="Clear"></div>
+
+             </div>
+ <div class="Clear"></div>
+                        <a href="" class="timhieu" title="" target="_blank">>> Chính sách thanh toán của BIGSEA</a>
+
+        </div>
+        <div class="nVar_Order">
+        	<span>Hình thức vận chuyển</span>
+        </div>
+        <div class="Vanchuyen">
+        	<div class="row_Vanchuyen">
+            	<input type="radio" id="rdtt" name="rdtt"  /><span>Bất kỳ giờ nào</span>
+            </div>
+            <div class="row_Vanchuyen">
+            	<input type="radio" id="rdtt" name="rdtt" /><span>Trong giờ hàng chính</span>
+            </div>	
+             <div class="row_Vanchuyen">
+            	<input type="radio" id="rdtt" name="rdtt"  /><span>Ngoài giờ hàng chính</span>
+            </div>	                    <div class="Clear"></div>
+
+            <a href="" class="timhieu" title="" target="_blank">>> Chính sách vận chuyển của BIGSEA</a>
+             
+        </div>
+       <div class="RowOrd1">
+                        <div class="Left_RowOrd">
+                            <span>Lời nhắn</span>
+                        </div>
+                        <div class="Right_RowOrd">
+                             <textarea id="txtContent" name="txtContent" class="txtContent" cols="5"></textarea>
+                        </div>
+                            
+            
+                    </div>
+                    <div class="Clear"></div>
+                    <button type="submit" name="btnorder" id="btnorder" class="btnorder">Gửi đơn hàng</button>
+    </div>
+    <div id="ListOrder">
+   		 <div class="nVar_Order">
+        	<span>Giỏ hàng của bạn</span>
+        </div>
+        <div id="Content_ListOrder">
+        	<table  align="left" cellpadding="2" >
+  <tr class="top">
+    <td class="Name">Tên sản phẩm</td>
+    <td class="Price">Đơn giá</td>
+    <td class="Ord">SL</td>
+    <td class="PriceSale">Thành tiền</td>
+  </tr>
+  <tr>
+    <td  class="Name">
+    	<a href="" title=""><img src="iCon/binh-nong-lanh.png" /></a>
+        <a href="" title="" class="Namepd">Bình nón lạnh INAX HP20</a>
+        <a href="" title="" class="Delete">Xóa</a>
+    </td>
+    <td  class="Price"><span>2.352.000 vnđ</span></td>
+    <td  class="Ord"><input type="number" name="Ord" id="Ord" /></td>
+    <td  class="PriceSale"><span>3.250.000 vnđ</span></td>
+  </tr>
+      <tr>
+    <td  class="Name">
+    	<a href="" title=""><img src="iCon/binh-nong-lanh.png" /></a>
+        <a href="" title="" class="Namepd">Bình nón lạnh INAX HP20</a>
+        <a href="" title="" class="Delete">Xóa</a>
+    </td>
+    <td  class="Price"><span>2.352.000 vnđ</span></td>
+    <td  class="Ord"><input type="number" name="Ord" id="Ord" /></td>
+    <td  class="PriceSale"><span>3.250.000 vnđ</span></td>
+  </tr>
+    <tr>
+    <td  class="Name">
+    	<a href="" title=""><img src="iCon/binh-nong-lanh.png" /></a>
+        <a href="" title="" class="Namepd">Bình nón lạnh INAX HP20</a>
+        <a href="" title="" class="Delete">Xóa</a>
+    </td>
+    <td  class="Price"><span>2.352.000 vnđ</span></td>
+    <td  class="Ord"><input type="number" name="Ord" id="Ord" /></td>
+    <td  class="PriceSale"><span>3.250.000 vnđ</span></td>
+  </tr>
+</table>
+			<div class="Sum">
+	<div class="LeftSUM">
+    	<span>Bạn có <span>3</span> sản phẩm trong giỏ hàng</span>
+    </div>
+    	<div class="RightSUM">
+        	<span class="Sum1">Tổng cộng :  3.250.000 vnđ </span>
+            <span class="Sum2">Thành tiền:  3.250.000 vnđ </span>
+      </div>
+        
+</div>
+			<div class="OrderNows">
+			<a href="" title="" class="nexorder">Tiếp tục mua hàng</a>
+                    <button type="submit" style="float:right; margin-right:7px" name="btnorder" id="btnorder" class="btnorder">Gửi đơn hàng</button>
+
+</div>
+
+        </div>
+    </div>
+<div>	
+</div>
+</div>
+<p>&nbsp;</p>
+    </div>
+</body>
+</html>

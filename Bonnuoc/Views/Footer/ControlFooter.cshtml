@@ -1,0 +1,200 @@
+﻿@model Bonnuoc.Models.tblConfig
+<div id="Footer">
+    <div id="Content_Footer">
+        <div id="TopFooter">
+            <div id="Nvar_TopFooter">
+                <div id="icon_Nvar_TopFooter"></div>
+                <div id="Left_Nvar_TopFooter">
+                    Đăng ký nhận chương trình khuyến mại bồn nước <a href="" title="">Đăng ký</a>
+                </div>
+                <div id="Right_Nvar_TopFooter">
+@using (Html.BeginForm("Command", "Footer", FormMethod.Post))
+{
+                    <input type="text" required="required" class="txtName" name="txtName" id="txtName" placeholder="Nhập họ tên" /><input type="number" class="txtMobile" required="required" name="txtMobile" id="txtMobile" placeholder="Nhập số điện thoại" />
+                    <input type="email" class="txtEmail" name="txtEmail" id="txtEmail" placeholder="Nhập Email" required="required" />
+                    <button type="submit" name="btnSubmit" class="btnSubmit" id="btnSubmit">Đăng ký</button>
+                    }
+
+                </div>
+            </div>
+            <div id="Content_TopFooter">
+                <div id="Left_TopFooter">
+                    <div class="Orderbuy">
+                        <span>Hỗ trợ thanh toán</span>
+                        <span class="icon"></span>
+                    </div>
+
+                    <div class="Chungnhan">
+                        <span class="Name">Chứng nhận website</span>
+                        <span class="icon"></span>
+                    </div>
+                </div>
+                <div id="RightTopFooter">
+                    <div class="Tear_Ft">
+                        <span class="Title">Giới thiệu chung</span>
+                        <ul>
+                            <li><a href="/Gioi-thieu" title="">Giới thiệu</a></li>
+                            <li><a href="/0/Tin-tuc" title="">Tin tức</a></li>
+                            <li><a href="/0/Tu-van-ky-thuat" title="">Tư vấn kỹ thuật</a></li>
+                            <li><a href="/Lien-he" title="">Liên hệ</a></li>
+                            <li><a href="/Ban-do" title="">Bản đồ</a></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="Tear_Ft">
+                        <span class="Title">Chính sách dịch vụ</span>
+                        <ul>
+                            @Html.Raw(ViewBag.chinhsach)
+                            
+                        
+                        </ul>
+                    </div>
+                    <div class="Tear_Ft">
+                        <span class="Title">Hướng dẫn mua hàng</span>
+                        <ul>
+                            @Html.Raw(ViewBag.muahang)
+                        </ul>
+                    </div>
+                    <div class="Tear_Ft">
+                        <span class="Title">Báo giá bồn nước</span>
+                        <ul>
+                            @Html.Raw(ViewBag.chuoibaogia)
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="Clear"></div>
+        <div id="Bottom_Footer">
+            <div id="Info_Footer">
+                <div class="Tear_ft">
+                    <div class="nVar_Tear_footer">
+                        <h3>@Model.Name</h3>
+                        <span class="name">Danh sách những trung tâm phân phân phối chính hãng trên toàn quốc</span>
+                        <span class="line"></span>
+                    </div>
+                    <div class="Tear_ft_1">
+                        <div class="nVar_Tear_ft_1">
+                            <span class="name_ft">Hà Nội <span>(trụ sở chính)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                            <span class="ct_ft">Địa chỉ : <span>@Model.Address</span></span>
+                            <span class="ct_ft">Điện thoại : <span>@Model.MobileIN</span></span>
+                            <span class="ct_ft">Hotline :<span>@Model.HotlineIN</span></span>
+
+                            <span class="ct_ft">Email: <span>@Model.Email</span></span>
+                            <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+
+                        </div>
+                    </div>
+                    @Html.Raw(ViewBag.chuoi) 
+                </div>
+
+                @Html.Raw(Model.Content)
+                <div class="Linking" style="opacity:0.5">
+
+                    <h3><a href="http://thayloilocnuoc.com" title="Thay lõi lọc nước Kangaroo">Thay lõi lọc nước Kangaoroo tại nhà</a> </h3> hoặc <h3><a href="http://Boluudien.top" title="Bộ lưu điện UPS">Bộ lưu điện UPS</a></h3><h3><a href="http://Binhnonglanh.top" title="Bình nóng lạnh">Bình nóng lạnh</a></h3>
+                </div>
+                
+            </div>
+        </div>
+        <div id="Info_Company">
+            <span class="Line_cp"></span>
+            <span class="cp1">
+                Bản quyền © 2015 - Công ty TNHH SEABIG Việt Nam All Rights Reserved.
+            </span>
+            <span class="cp2">Giấy chứng nhận ĐKDN số : 0105956762 Ngày cấp: 30/07/2012</span>
+            <div class="Clear"></div>
+        </div>
+    </div>
+    <div class="Clear"></div>
+
+</div>
+ @if(Request.Browser.IsMobileDevice==false)
+ {
+    @Html.Raw(Model.CodeChat)  
+      <script>
+    try {
+        var Tat_quangcao = localStorage.getItem("Tat_quangcao");
+        if (Tat_quangcao != null) {
+            if ((new Date).getDate() == new Date(parseInt(localStorage.getItem("Tat_quangcao"))).getDate()) {
+                open_motog = false;
+            }
+        }
+    } catch (e) { console.log(e) }
+
+    function Tatquangcao(obj) {
+        $(obj).parent().remove();
+        try {
+
+            $('#Top_Banner').css({ 'height': '32px' });
+            $('#Content_Top_Banner').css({ 'position': 'relative', 'display': 'block' });
+            $('#adw').html();
+
+            localStorage.setItem("Tat_quangcao", (new Date).getTime())
+        } catch (e) { console.log(e); }
+    }
+</script>
+     <style>
+        #adwfooter {
+            width: 100%;
+            height: auto;
+            float: left;
+            margin: 0px;
+            border-bottom: 1px solid #dddddd;
+            position: fixed;
+            bottom: 0px;
+        }
+
+        #Banner_footer {
+            bottom: 0px;
+            z-index: 10;
+            width: 100%;
+            height: auto;
+            float: left;
+        }
+
+        #Content_Banner_Footer {
+            width: 1200px;
+            height: auto;
+            margin: 0px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+            #Content_Banner_Footer span {
+                font-size: 20px;
+                text-align: center;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: #333;
+                color: #FFF;
+                cursor: pointer;
+                z-index: 99;
+                line-height: 20px;
+            }
+
+            #Content_Banner_Footer a {
+                float: left;
+                margin: 0px;
+                display: block;
+            }
+    </style>
+    if(ViewBag.Chuoiimg != null && ViewBag.Chuoiimg!="")
+    {
+        <div id="adwfooter">
+        <div id="Banner_footer">
+            <div id="Content_Banner_Footer">
+                <span onclick="Tatquangcao(this)">×</span>
+                
+                @Html.Raw(ViewBag.Chuoiimg)
+            </div>
+        </div>
+    </div>
+    }
+ }

@@ -1,0 +1,580 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link type="text/css" href="Style/contact.css" rel="stylesheet" />
+    <link type="text/css" href="Style/Default.css" rel="stylesheet" />
+     <link type="text/css" href="Style/Default_Rs.css" rel="stylesheet" />
+
+       <script type="text/javascript" src="Js/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="Js/Scroll.js"></script>
+    <script type="text/javascript" src="Js/jquery.combinedScroll.js"></script>
+       <script>
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+        
+  <style>
+      .item_li1:hover{background:#e44d01}
+	  .item_li1:hover a{color:#FFF !important}
+  </style>
+ 
+        <script type="text/javascript">
+		 		function Tab(an)
+				{
+					var array = an.split('-');
+					 var t1=array[0];
+					 var t2=array[1];
+ 					$('div#v'+t2).hide();
+					$('a.t'+t2).removeClass('set');
+					$(this).addClass('set');
+					$('a.t'+t1).addClass('set');
+					$('div#v'+t1).show();
+					return false;
+				}
+		</script>
+ </head>
+<body>
+    <header>
+        <div id="Toolbars">
+            <div id="Content_Toolbars">
+                <div id="Hotline_Toolbars">
+                    <span class="span_Toolbars"><span>(08) 3856 3388</span> (Online từ 8h30 đến 21h00 từ Thứ 2 - Chủ Nhật)</span>
+                </div>
+                <div id="Isocial_Toolbars"></div>
+                <div id="Funcs_Toolbars">
+                    <div id="CheckOrder_Toolbars">
+                        <a href="">Kiểm tra đơn hàng</a>
+                    </div>
+                    <div id="Order_Toolbars">
+                        <a class="icon" href="">Giỏ hàng (<span>0</span> sản phẩm) </a>
+                        <div id="List_OrderToolbar">
+                            <div class="Tear_OrderToolbar">
+                                <a href="" title=""><img src="iCon/binh-nong-lanh.png" alt="" /></a>
+                                <a href="" class="Name">Bình nóng lạnh Inax S20B</a>
+                                <span>9.655.000đ</span>
+                                <a href="" class="Del"></a>
+                            </div>
+                            <div class="Tear_OrderToolbar">
+                                <a href="" title=""><img src="iCon/binh-nong-lanh.png" alt="" /></a>
+                                <a href="" class="Name">Bình nóng lạnh Inax S20B</a>
+                                <span>9.655.000đ</span>
+                                <a href="" class="Del"></a>
+                            </div>
+                            <div class="Tear_OrderToolbar">
+                                <a href="" title=""><img src="iCon/binh-nong-lanh.png" alt="" /></a>
+                                <a href="" class="Name">Bình nóng lạnh Inax S20B</a>
+                                <span>9.655.000đ</span>
+                                <a href="" class="Del"></a>
+                            </div>
+                            <div id="Checknow"><a href="" title="">Đặt hàng</a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Banner">
+            <div id="Banner_Content">
+                <div id="Left_Banner">
+                    <div id="Logo">
+                        <a href="/" title="Trang chủ"><img src="iCon/Logo.png" alt="" /></a>
+                    </div>
+                </div>
+                <div id="Center_Banner">
+                    <div id="Menu_Bars">
+                        <a href="" title="">Trang chủ</a>
+                        <a href="" title="">Giới thiệu</a>
+                        <a href="" title="">Hệ thống chi nhánh</a>
+                        <a href="" title="">Liên hệ</a>
+                        <a href="" title="">Tuyển dụng</a>
+
+                    </div>
+                    <div class="Search_Bar">
+                        <div class="Content_SearchBar">
+                            <select class="slec">
+                                <option value="1" selected="selected">Sản phẩm</option>
+                                <option value="2">Tin tức</option>
+                            </select>
+                            <input type="search" name="txtSearch" id="txtSearch" class="txtSearch" placeholder="Tìm kiếm sản phẩm mà bạn muốn" /><button type="submit" name="btnSearch" id="btnSearch" class="btnSearch"></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="Right_Banner">
+                    <a href=""><img src="iCon/icon-giaohang.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="Clear"></div>
+            <div id="TaskBars">
+                <div id="Menu">
+                    <span class="Name">Danh mục sản phẩm</span>
+                    <div id="Content_Menu">
+                        <ul class="ul_1">
+                            <li class="li_1">
+                                <a href="" title="">Thiết bị vệ sinh <span></span></a>
+                                <div class="sub_item" style="background:url(iCon/adw_pd.jpg) no-repeat right bottom scroll #fff">
+                                    <ul class="ul_2">
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh TOTO  <span></span></a>
+                                            <div class="sub_item1">
+                                                <ul class="ul_3">
+                                                    <li class="li_3">
+                                                        <a href="" title="">Bàn cầu TOTO <span></span></a>
+                                                        <div class="sub_item2">
+                                                            <ul class="ul4">
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 1 khối</a>
+                                                                </li>
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 2 khối</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </li>
+                                                    <li class="li_3">
+                                                        <a href="" title="">Bàn cầu 2 khối TOTO</a>
+                                                        <div class="sub_item2">
+                                                            <ul class="ul4">
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 2 khối</a>
+                                                                </li>
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 3 khối</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </li>
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh Inax<span></span></a>
+
+                                        </li>
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh Viglacera<span></span></a>
+
+                                        </li>
+                                        <li class="li_2"> <a href="" title="">Thiết bị vệ sinh Cotto<span></span></a> </li>
+
+                                    </ul>
+                                </div>
+
+                            </li>
+                            <li class="li_1">
+                                <a href="" title="">Sản phẩm bếp <span></span></a>
+                                <div class="sub_item" style="background:url(iCon/adw_pd.jpg) no-repeat right bottom scroll #fff">
+                                    <ul class="ul_2">
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh TOTO  <span></span></a>
+                                            <div class="sub_item1">
+                                                <ul class="ul_3">
+                                                    <li class="li_3">
+                                                        <a href="" title="">Bàn cầu TOTO <span></span></a>
+                                                        <div class="sub_item2">
+                                                            <ul class="ul4">
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 1 khối</a>
+                                                                </li>
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 2 khối</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </li>
+                                                    <li class="li_3">
+                                                        <a href="" title="">Bàn cầu 2 khối TOTO</a>
+                                                        <div class="sub_item2">
+                                                            <ul class="ul4">
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 2 khối</a>
+                                                                </li>
+                                                                <li class="li4">
+                                                                    <a href="" title="">› Bàn cầu TOTO 3 khối</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </li>
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh Inax<span></span></a>
+
+                                        </li>
+                                        <li class="li_2">
+                                            <a href="" title="">Thiết bị vệ sinh Viglacera<span></span></a>
+
+                                        </li>
+                                        <li class="li_2"> <a href="" title="">Thiết bị vệ sinh Cotto<span></span></a> </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="li_1"><a href="" title="">Bình nóng lạnh <span></span></a></li>
+                            <li class="li_1">
+                                <a href="" title="">Máy nước nóng NLMT <span></span></a>
+
+                            </li>
+                            <li class="li_1"><a href="" title="">Bình nóng lạnh <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Bồn nước <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Đèn sưởi, quạt sưởi<span></span></a></li>
+                            <li class="li_1"><a href="" title="">Sơn nhà đẹp <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Sàn gỗ <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Máy lọc nước <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Máy hút mùi <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Thiết kế nội ngoại thất <span></span></a></li>
+                            <li class="li_1"><a href="" title="">Bồn tắm<span></span></a></li>
+                            <li class="li_1"><a href="" title="">Máy rửa bát <span></span></a></li>
+
+                            <li class="li_1"><a href="" title="">Sản phẩm khác<span></span></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="Right_TaskBars">
+                	<div class="Tear_Task">
+                    	<a href="" title="" class="Sale">Bản tin khuyến mại</a>
+                    </div>
+                    <div class="Tear_Task">
+                    	<a href="" title="" class="News">Bản tin khuyến mại</a>
+                    </div>
+                    <div class="Tear_Task">
+                    	<a href="" title="" class="Service">Chính sách dịch vụ</a>
+                    </div>
+                     <div class="Tear_Task">
+                    	<a href="" title="" class="Support">Hỗ trợ trực tuyến</a>
+                        <a href="Skype:vvtcntt?chat" class="skype">
+                            <img class="imgSkyper" src="iCon/skype-icon.png" title="Kangaroo"  alt="">
+                        </a>
+                         <a href="Skype:vvtcntt?chat" class="skype">
+                            <img class="imgSkyper" src="iCon/skype-icon.png" title="Kangaroo"  alt="">
+                        </a>
+                         <a href="Skype:vvtcntt?chat" class="skype">
+                            <img class="imgSkyper" src="iCon/skype-icon.png" title="Kangaroo"  alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="SideBar">
+        	<div id="Content_SideBar">
+             <nav class="site-navigation page-navigation" style="opacity: 1; "> 
+             	 <li class="current"><a href="#neo-1" class="neo">Bồn nước 500 lít</a></li>
+                  <li><a href="#neo-2" class="neo">Bồn nước 1000 lít</a></li>
+                   <li><a href="#neo-4" class="neo">Bồn nước 1500 lít</a></li>
+             </nav> 
+            </div>
+        </div>
+        <div class="Clear"></div>
+    </header>
+    <section>
+    	 
+        <div id="Main">
+        	 <div id="MainContent">
+              <div class="Root">
+                    <nav><a href="" title="">Trang chủ</a><i></i><a href="" title="">Bồn cầu</a><i></i><a href="" title="">Bồn cầu TOTO</a></nav>
+                </div>
+             	<div id="Contact">
+        	<div id="Left_Contact">
+            	<div class="Nvar_Contact">
+                	<span>Thông tin công ty</span>
+                </div>
+                <div id="Content_LeftContact">
+                	<img class="Logo" src="Icon/Logo.png" alt="Logo Seabig" />
+            	<h2>
+                	Công ty tnhh seabig Việt Nam
+                </h2>
+                <p>Trụ sở chính: <span> Số 01+7a, nhà D10 Nguyễn Xiển, P.Kim Giang, Q.Thanh Xuân,
+					Hà Nội.</span></p>
+				<p>Địa chỉ giao dịch: <span> Số 391 - Nguyễn Xiển - Thanh Xuân - Hà Nội.</span></p>
+                <p>Điện thoại : <span> Điện Thoại : 04.3755 8857 - 04.3748 0028 </span></p>
+                <p>Fax : <span>04.3511 5838 </span> Hotline : <span>0962 914 242</span> </p>
+                
+                <p>Email :<span>Bonnuoc.vn@gmail.com</span> - Website: <span>www.Bonnuoc.vn</span></p>
+                <p class="note">Khách hàng chú ý : Thời gian làm việc của công ty bắt đầu từ 7h30 đến 18h hàng ngày. Công ty làm việc tất cả các ngày trong tuần từ thứ 2 đến chủ nhật (kể cả ngày lễ). Hỗ trợ bảo hành sản phẩm chỉ áp dụng các ngày từ thứ 2 đến thứ 6 và trong giờ hành chính .</p>
+                </div>
+            </div>
+            <div id="Right_Contact">
+            	<div class="Nvar_Contact">
+                	<span>Form liên hệ</span>
+                </div>
+                <div id="Content_RightContact">
+                		<div class="Tear_Contact">
+                        	<div  class="Left_TearContact">
+                            	<span>Họ và tên :</span>
+                            </div>
+                            <div  class="Right_TearContact">
+                            	<input type="text" name="txtName" id="txtName" class="txtName" placeholder="Mời bạn nhập họ và tên" />
+                            </div>
+                        </div>
+                        <div class="Tear_Contact">
+                        	<div  class="Left_TearContact">
+                            	<span>Địa chỉ :</span>
+                            </div>
+                            <div  class="Right_TearContact">
+                            	<input type="text" name="txtName" id="txtName" class="txtName" placeholder="Mời bạn nhập địa chỉ" />
+                            </div>
+                        </div>
+                        <div class="Tear_Contact">
+                        	<div  class="Left_TearContact">
+                            	<span>Điện thoại :</span>
+                            </div>
+                            <div  class="Right_TearContact">
+                            	<input type="text" name="txtName" id="txtName" class="txtName" placeholder="Mời bạn nhập địện thoại" />
+                            </div>
+                        </div>
+                        <div class="Tear_Contact">
+                        	<div  class="Left_TearContact">
+                            	<span>Email :</span>
+                            </div>
+                            <div  class="Right_TearContact">
+                            	<input type="text" name="txtName" id="txtName" class="txtName" placeholder="Mời bạn nhập Email" />
+                            </div>
+                        </div>
+                        <div class="Tear_Contact">
+                        	<div  class="Left_TearContact">
+                            	<span>Nội dung:</span>
+                            </div>
+                            <div  class="Right_TearContact">
+                            	 <textarea id="txtContent" Name="txtContent" placeholder="Nhập nội dung liên hệ"></textarea>
+                            </div>
+                        </div>
+                         <div class="Tear_Contact">
+                         	<button type="submit" name="btnSend" id="btnSend" class="bntSend" value="Gửi">Gửi thông tin</button>
+                            <p class="note">Chúng tôi chỉ phản hồi lại khi khách hàng điền đầy đủ và chính xác các thông tin. </p>
+                         </div>
+                </div>
+            </div>
+        </div>
+        <div class="Clear"></div>
+             </div> 
+        </div>
+    </section>
+    <footer>
+    	<div id="Footer">
+        	<div id="Content_Footer">
+            	<div id="TopFooter">
+                	<div id="Nvar_TopFooter">
+                    	<div id="icon_Nvar_TopFooter"></div>
+                    	<div id="Left_Nvar_TopFooter">
+                        	Đăng ký nhận chương trình khuyến mại bồn nước <a href="" title="">Đăng ký</a>
+                        </div>
+                        <div id="Right_Nvar_TopFooter">
+                        	<input type="text"  required="required" class="txtName" name="txtName" id="txtName" placeholder="Nhập họ tên" /><input type="number" class="txtMobile" required="required" name="txtMobile" id="txtMobile" placeholder="Nhập số điện thoại" />
+                            <input type="email" class="txtEmail" name="txtEmail" id="txtEmail" placeholder="Nhập Email" required="required" />
+                            <button type="submit" name="btnSubmit" class="btnSubmit" id="btnSubmit">Đăng ký</button>
+                        	
+                        </div>
+                    </div>
+                    <div id="Content_TopFooter">
+                    	<div id="Left_TopFooter">
+                        <div class="Orderbuy">
+                            <span>Hỗ trợ thanh toán</span>
+                            <span class="icon"></span>
+                        </div>
+                         
+                        <div class="Chungnhan">
+                            <span class="Name">Chứng nhận website</span>
+                            <span class="icon"></span>
+                        </div>
+            		</div>
+                   	  <div id="RightTopFooter">
+                        	<div class="Tear_Ft">
+                            	<span class="Title">Giới thiệu chung</span>
+                                <ul>
+                                	<li><a href="" title="">Giới thiệu</a></li>
+                                    <li><a href="" title="">Tin tức</a></li>
+                                    <li><a href="" title="">Tư vấn kỹ thuật</a></li>
+                                    <li><a href="" title="">Liên hệ</a></li>
+                                    <li><a href="" title="">Bản đồ</a></li>
+                                    <li></li>
+                                </ul>
+                          </div>
+                          <div class="Tear_Ft">
+                            	<span class="Title">Giới thiệu chung</span>
+                                <ul>
+                                	<li><a href="" title="">Giới thiệu</a></li>
+                                    <li><a href="" title="">Tin tức</a></li>
+                                    <li><a href="" title="">Tư vấn kỹ thuật</a></li>
+                                    <li><a href="" title="">Liên hệ</a></li>
+                                    <li><a href="" title="">Bản đồ</a></li>
+                                    <li></li>
+                                </ul>
+                          </div>
+                          <div class="Tear_Ft">
+                            	<span class="Title">Giới thiệu chung</span>
+                                <ul>
+                                	<li><a href="" title="">Giới thiệu</a></li>
+                                    <li><a href="" title="">Tin tức</a></li>
+                                    <li><a href="" title="">Tư vấn kỹ thuật</a></li>
+                                    <li><a href="" title="">Liên hệ</a></li>
+                                    <li><a href="" title="">Bản đồ</a></li>
+                                    <li></li>
+                                </ul>
+                          </div>
+                          <div class="Tear_Ft">
+                            	<span class="Title">Giới thiệu chung</span>
+                                <ul>
+                                	<li><a href="" title="">Giới thiệu</a></li>
+                                    <li><a href="" title="">Tin tức</a></li>
+                                    <li><a href="" title="">Tư vấn kỹ thuật</a></li>
+                                    <li><a href="" title="">Liên hệ</a></li>
+                                    <li><a href="" title="">Bản đồ</a></li>
+                                    <li></li>
+                                </ul>
+                          </div>
+                        </div>
+                    </div> 
+       			</div>
+            	<div class="Clear"></div>
+            	<div id="Bottom_Footer">
+                	<div id="Info_Footer">
+             	<div class="Tear_ft">
+                	<div class="nVar_Tear_footer">
+                    	<h3>Trung tâm phân phối bồn nước lớn nhất Việt Nam</h3>
+                    	<span class="name">Danh sách những trung tâm phân phân phối chính hãng của SƠN HÀ</span>
+                        <span class="line"></span>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Hà Nội <span>(trụ sở chính)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    </span>
+                        <span class="ct_ft">Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Hải Phòng <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Đà nẵng <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Nghệ An <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">TP.Hồ CHí Minh <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Đà nẵng <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">Nghệ An <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                    <div class="Tear_ft_1">
+                    	<div class="nVar_Tear_ft_1">
+                        	<span class="name_ft">TP.Hồ CHí Minh <span>(Chi nhánh)</span></span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                        	<span class="ct_ft">Địa chỉ : <span>391 - Nguyễn Xiển - Thanh Xuân - Hà Nội</span></span>
+                        <span class="ct_ft">Điện thoại : <span>04.3755 8857 - 04.3748 0028</span>    Hotline :<span>0976 173 468</span></span>
+                          
+                          <span class="ct_ft">Email: <span>Bonnuocsonha@gmail.com</span></span>
+                          <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            	 
+                
+            </div>
+                </div>
+                <div id="Info_Company">
+        	<span class="Line_cp"></span>
+            <span class="cp1">Bản quyền © 2015 - Công ty TNHH SEABIG Việt Nam All Rights Reserved.
+</span>
+			<span class="cp2">Giấy chứng nhận ĐKDN số : 0105956762 Ngày cấp: 30/07/2012</span>
+             <div class="Clear"></div>
+        </div>
+            </div>
+            <div class="Clear"></div>
+        	
+        </div>
+    </footer>
+</body>
+</html>

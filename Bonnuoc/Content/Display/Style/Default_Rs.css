@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media screen and (max-width: 768px) {
+	
+ #Content_Toolbars{width:100%}
+ #Hotline_Toolbars span.span_Toolbars{font-size:11px}
+ #CheckOrder_Toolbars a{font-size:12px}
+ #Order_Toolbars a.icon {font-size:12px}
+ #Banner_Content{width:100%}
+ #Banner_Content #Left_Banner{width:35%}
+ #Banner_Content #Left_Banner #Logo img{max-width:98%; height:auto; margin-left:5px}
+ #Banner_Content #Center_Banner{width:65%}
+ #Banner_Content #Right_Banner{display:none}
+ .Content_SearchBar{width:80%}
+ #Banner_Content #Center_Banner #Menu_Bars{margin-top:10px}
+ .Content_SearchBar .txtSearch{width:60%}
+ #TaskBars{width:100%}
+ #Right_TaskBars{width:auto; float:right}
+ .Tear_Task a{font-size:12px}
+ .Tear_Task:last-child{display:none}
+ .Tear_Task:first-child{margin-left:20px}
+ .Content_SearchBar .slec{width:23%}
+ #Slide #SlideContent{width:100%}
+ #Main{width:100%}
+ .Tear_1{width:23.7%}
+ .Tear_1 .Box_Tear .Right_BoxTear .Material{display:none}
+ .Tear_sv .Left_sv{width:35%}
+ .Tear_sv .sv01{ background-size:100%}
+ .Tear_sv .sv02{ background-size:100%}
+ .Tear_sv .sv03{ background-size:100%}
+ .Tear_sv .sv04{ background-size:100%}
+ .Tear_sv .Right_sv{width:65%}
+ .Tear_sv .Right_sv .sv1{font-size:9px}
+ .Tear_sv .Right_sv .sv2{font-size:12px}
+ #Content_Footer{width:100%}
+ #Right_Nvar_TopFooter{display:none}
+ #Nvar_TopFooter #Left_Nvar_TopFooter a{display:inline-block}
+ .Tear_ft_1{width:31%}
+ .Tear_ft .nVar_Tear_footer h3{font-size:20px}
+ #Info_Company{width:100%}
+ #Hotline_Toolbars span.span_Toolbars span{font-size:12px}
+ #Content_SideBar{width:100%}
+}
+@media screen and (max-width: 480px) {
+	#Funcs_Toolbars{display:none}
+	 #SideBar{ display:none !important}
+	 #Hotline_Toolbars span.span_Toolbars span{font-size:10px}
+	 #Banner_Content #Left_Banner{width:100%; background:#0077cb}
+	 #Banner_Content #Left_Banner #Logo img{ margin:5px auto; display:block; float:none; width:auto}
+	 #Banner_Content #Center_Banner{width:100%}
+	 #Banner_Content #Center_Banner #Menu_Bars a{font-size:12px; padding:5px 3px}
+	  #Banner_Content #Center_Banner #Menu_Bars a:last-child{display:none}
+	  .Content_SearchBar{width:98%}
+	  #Banner_Content #Center_Banner #Menu_Bars{margin-top:2px}
+	  .Content_SearchBar .txtSearch{height:95%}
+	  .Content_SearchBar .slec{height:95%}
+	  .Content_SearchBar .slec{width:29%}
+	  .Content_SearchBar .txtSearch{width:50%}
+	  #TaskBars{display:none}
+	  .Right_Nvar_01{display:none}
+	  .Tear_1{width:46%; margin:1%}
+	  .cls_Product .nVar .Right_Nvar{display:none}
+	  .Tear_sv{width:98%; border-bottom:1px solid #21a3ff; border-top:1px solid #035b99}
+	  .Tear_sv .Left_sv{width:26%}
+	  .Tear_sv .Right_sv{width:73%}
+	  .Tear_sv .Right_sv .sv1{font-size:12px}
+	  .Tear_sv .Right_sv .sv2{font-size:18px}
+	  #NewHomes{display:none}
+	  #TopFooter{display:none}
+	  .Tear_ft_1{width:100%; margin:5px 0px}
+	  #Left_Contact{width:100%; margin:0px; padding:0px}
+	    #Right_Contact{width:100%; margin:10px 0px; padding:0px}
+}

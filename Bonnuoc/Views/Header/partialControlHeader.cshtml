@@ -1,0 +1,100 @@
+﻿@model Bonnuoc.Models.tblConfig
+<div id="Toolbars">
+    <div id="Content_Toolbars">
+        <div id="Hotline_Toolbars">
+            <span class="span_Toolbars"><span>@Model.HotlineIN</span> (Online từ 8h30 đến 21h00 từ Thứ 2 - Chủ Nhật)</span>
+        </div>
+        <div id="Isocial_Toolbars"></div>
+        <div id="Funcs_Toolbars">
+            <div id="CheckOrder_Toolbars">
+                <a href="/Order/OrderIndex" title="Kiểm tra đơn hàng">Kiểm tra đơn hàng</a>
+            </div>
+            <div id="Order_Toolbars">
+                @if (Session["soluong"] != "" && Session["soluong"] != null)
+                {
+                    <a class="icon" href="/Gio-hang" title="Giỏ hàng">Giỏ hàng (<span>@Session["soluong"].ToString()</span> sản phẩm) </a>
+                }
+                else
+                {
+                    <a class="icon" href="/Order/OrderIndex" title="Giỏ hàng">Giỏ hàng (<span>0</span> sản phẩm) </a>
+                }
+                <div id="List_OrderToolbar">
+                    <div id="dat">
+                        @if (Session["orderlist"] != "" && Session["orderlist"] != null)
+                        {
+                            @Html.Raw(Session["orderlist"].ToString());
+                        }
+
+
+                    </div>
+
+                    <div id="Checknow"><a href="/Order/OrderIndex" title="Đặt hàng">Đặt hàng</a></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Banner">
+    <div id="Banner_Content">
+        <div id="Left_Banner">
+            <div id="Logo">
+                <a href="/" title="Trang chủ"><img src="@Model.Logo" alt="@Model.Name" /></a>
+            </div>
+        </div>
+        <div id="Center_Banner">
+            <div id="Menu_Bars">
+                <a href="/" title="Trang chủ" rel="nofollow">Trang chủ</a>
+                <a href="/Gioi-thieu" title="Giới thiệu" rel="nofollow">Giới thiệu</a>
+                <a href="/He-thong-phan-phoi" title="Chi nhánh" rel="nofollow">Hệ thống chi nhánh</a>
+                <a href="/Lien-he" title="Liên hệ">Liên hệ</a>
+                <a href="/0/Tuyen-dung" title="Tuyển dụng" rel="nofollow">Tuyển dụng</a>
+            </div>
+            <div class="Search_Bar">
+                @using (Html.BeginForm("CommandSearch", "Header", FormMethod.Post))
+                {
+                    <div class="Content_SearchBar">
+                        <select class="slec">
+                            <option value="1" selected="selected">Sản phẩm</option>
+                            <option value="2">Tin tức</option>
+                        </select>
+                        <input type="search" name="txtSearch" id="txtSearch" class="txtSearch" placeholder="Tìm kiếm sản phẩm mà bạn muốn" />
+                        <button type="submit" name="btnSearch" id="btnSearch" class="btnSearch"></button>
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="Right_Banner">
+            <a href=""><img src="~/Content/Display/iCon/icon-giaohang.png" alt="" /></a>
+        </div>
+    </div>
+    <div class="Clear"></div>
+    <div id="TaskBars">
+        <div id="Menu">
+            <span class="Name">Danh mục sản phẩm</span>
+            <div id="Content_Menu">
+                <ul class="ul_1">
+                    @Html.Raw(ViewBag.menu)
+                </ul>
+            </div>
+
+        </div>
+        <div id="Right_TaskBars">
+            <div class="Tear_Task">
+                <a href="/Ban-tin-khuyen-mai" title="Bản tin khuyến mại" class="Sale">Bản tin khuyến mại</a>
+            </div>
+            <div class="Tear_Task">
+                <a href="/0/Tin-tuc" title="Tin tức mới" class="News" rel="nofollow">Tin tức mới</a>
+            </div>
+            <div class="Tear_Task">
+                <a href="/0/Chinh-sach-dich-vu" title="Chính sách dịch vụ" rel="nofollow" class="Service">Chính sách dịch vụ</a>
+            </div>
+            <div class="Tear_Task">
+                <a href="javascript:void(0)" title="Hỗ trợ trực tuyến" class="Support">Hỗ trợ trực tuyến</a>
+                @Html.Raw(ViewBag.chuoisp)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Clear"></div>

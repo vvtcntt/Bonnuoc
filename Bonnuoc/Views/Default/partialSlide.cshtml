@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Bonnuoc.Models.tblImage>
+<div id="Slide">
+    <div id="SlideContent">
+        @foreach (var item in Model)
+        {
+            <a href="@item.Url" title="@item.Name"><img src="@item.Images" alt="@item.Name" /></a>
+        }
+        
+        <div class="Clear"></div>
+    </div>
+
+</div>
