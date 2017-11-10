@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bonnuoc.Models;
+using System.Text;
+
 namespace Bonnuoc.Controllers.Display.Section.Product
 {
     public class ProductController : Controller
@@ -514,28 +516,33 @@ namespace Bonnuoc.Controllers.Display.Section.Product
         }
         public PartialViewResult LeftPartialProductDetail(string tag)
         {
-            string chuoisp = "";
+            StringBuilder chuoisupport = new StringBuilder();
             var listSupport = db.tblSupports.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
-            foreach(var item in listSupport)
+            for (int i = 0; i < listSupport.Count; i++)
             {
-                chuoisp += "<div class=\"Tear_Supports\">";
-                chuoisp += " <div class=\"Left_Tear_Support\">";
-                chuoisp += " <span class=\"htv1\">" + item.Mission + " :</span>";
-                chuoisp += " <span class=\"htv2\">" + item.Name + " :</span>";
-                chuoisp += "</div>";
-                chuoisp += "<div class=\"Right_Tear_Support\">";
-                chuoisp += "<a href=\"ymsgr:sendim?" + item.Yahoo + "\" title=\"" + item.Name + "\">";
-                chuoisp += "<img src=\"http://opi.yahoo.com/online?u=" + item.Yahoo + "&m=g&t=1\" alt=\"" + item.Name + "\" class=\"imgYahoo\" />";
-                chuoisp += " </a>";
-                chuoisp += "<a href=\"Skype:" + item.Skyper + "?chat\">";
-                chuoisp += " <img class=\"imgSkype\" src=\"" + item.Images + "\" title=\"" + item.Name + "\" alt=\"" + item.Name + "\">";
-                chuoisp += "</a>";
-                chuoisp += " </div>";
-                chuoisp += "</div>";
-                chuoisp += "<div class=\"line-Support\"></div> ";
+
+
+                chuoisupport.Append("<div class=\"Line_Buttom\"></div>");
+                chuoisupport.Append("<div class=\"Tear_Supports\">");
+                chuoisupport.Append("<div class=\"Left_Tear_Support\">");
+                chuoisupport.Append("<span class=\"htv1\">" + listSupport[i].Mission + ":</span>");
+                chuoisupport.Append("<span class=\"htv2\">" + listSupport[i].Name + " :</span>");
+                chuoisupport.Append("</div>");
+                chuoisupport.Append("<div class=\"Right_Tear_Support\">");
+                chuoisupport.Append("<div class=\"topTearSupport\">");
+
+                chuoisupport.Append("<a href=\"tel:" + listSupport[i].Mobile + "\" title=\"" + listSupport[i].Name + "\"><img src=\"/Content/Display/iCon/logo_zalo.png\" alt=\"" + listSupport[i].Name + "\" /></a>");
+                chuoisupport.Append("<a href=\"tel:" + listSupport[i].Mobile + "\" title=\"" + listSupport[i].Name + "\"><img src=\"/Content/Display/iCon/Viber_logo.png\" alt=\"" + listSupport[i].Name + "\" /></a>");
+                chuoisupport.Append("</div>");
+                chuoisupport.Append("<div class=\"bottomTearSupport\">");
+
+                chuoisupport.Append("<span>" + listSupport[i].Mobile + "</span>");
+                chuoisupport.Append("</div>");
+                chuoisupport.Append("</div>");
+                chuoisupport.Append("</div>");
 
             }
-            ViewBag.chuoisp = chuoisp;
+            ViewBag.chuoisp = chuoisupport.ToString();
             int idCate = int.Parse(db.tblProducts.First(p => p.Tag == tag).idCate.ToString());
             var listMenu = from a in db.tblProducts join b in db.tblGroupProducts on a.idCate equals b.id where a.Tag == tag join c in db.tblGroupProducts on b.ParentID equals c.ParentID select c;
             string chuoi = "";

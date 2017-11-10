@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1352,6 +1353,7 @@
     <Content Include="Content\Display\iCon\header-bg.png" />
     <Content Include="Content\Display\iCon\header-dropdown-nav-bg.png" />
     <Content Include="Content\Display\iCon\home_w.png" />
+    <Content Include="Content\Display\iCon\hotline-icons.png" />
     <Content Include="Content\Display\iCon\ho_tro_vien.png" />
     <Content Include="Content\Display\iCon\icon-count-view.png" />
     <Content Include="Content\Display\iCon\icon-giaohang.png" />
@@ -1388,6 +1390,7 @@
     <Content Include="Content\Display\iCon\Logo.png" />
     <Content Include="Content\Display\iCon\Logo_Son-ha.png" />
     <Content Include="Content\Display\iCon\Logo_Tana.png" />
+    <Content Include="Content\Display\iCon\logo_zalo.png" />
     <Content Include="Content\Display\iCon\newimages.jpg" />
     <Content Include="Content\Display\iCon\news.png" />
     <Content Include="Content\Display\iCon\product-stick.png" />
@@ -1401,6 +1404,7 @@
     <Content Include="Content\Display\iCon\search-submit.png" />
     <Content Include="Content\Display\iCon\skype-icon.png" />
     <Content Include="Content\Display\iCon\texture1.png" />
+    <Content Include="Content\Display\iCon\Viber_logo.png" />
     <Content Include="Content\Display\iCon\video.png" />
     <Content Include="Content\Display\Style\contact_Rs.css" />
     <Content Include="Content\Display\Style\Coppy.css" />
