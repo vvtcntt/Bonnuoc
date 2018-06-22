@@ -102,8 +102,8 @@ namespace Bonnuoc.Controllers.Display.Section.NewsHomes
             }
          
             var tblnews = db.tblNews.First(p => p.Tag == tag);
-            int idUser = int.Parse(tblnews.idUser.ToString());
-            ViewBag.Username = db.tblUsers.Find(idUser).UserName;
+            //int idUser = int.Parse(tblnews.idUser.ToString());
+            //ViewBag.Username = db.tblUsers.Find(idUser).UserName;
             int idCate = int.Parse(tblnews.idCate.ToString());
             var groupnews = db.tblGroupNews.First(p => p.id == idCate);
             ViewBag.NameMenu = groupnews.Name;
