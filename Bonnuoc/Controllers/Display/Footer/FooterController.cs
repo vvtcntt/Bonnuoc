@@ -85,5 +85,9 @@ namespace Bonnuoc.Controllers.Display.Footer
            
             return Redirect("/");
         }
+        public PartialViewResult callPartial()
+        {
+            return PartialView(db.tblConfigs.First());
+        }
     }
 }

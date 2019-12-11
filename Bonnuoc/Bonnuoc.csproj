@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1404,8 +1405,18 @@
     <Content Include="Content\Display\iCon\search-submit.png" />
     <Content Include="Content\Display\iCon\skype-icon.png" />
     <Content Include="Content\Display\iCon\texture1.png" />
+    <Content Include="Content\Display\iCon\update\bon-cau-inax-icon.png" />
+    <Content Include="Content\Display\iCon\update\calling.gif" />
+    <Content Include="Content\Display\iCon\update\facebook-icon.jpg" />
+    <Content Include="Content\Display\iCon\update\hinhtron.png" />
+    <Content Include="Content\Display\iCon\update\icon-zalo.png" />
+    <Content Include="Content\Display\iCon\update\KM-con.gif" />
+    <Content Include="Content\Display\iCon\update\youtube.png" />
     <Content Include="Content\Display\iCon\Viber_logo.png" />
     <Content Include="Content\Display\iCon\video.png" />
+    <Content Include="Content\Display\Js\update\jquery.popupMiendatweb.min.js" />
+    <Content Include="Content\Display\Js\update\owl.carousel.min.js" />
+    <Content Include="Content\Display\Js\update\script.js" />
     <Content Include="Content\Display\Style\contact_Rs.css" />
     <Content Include="Content\Display\Style\Coppy.css" />
     <Content Include="Content\Display\Js\jquery-2.1.4.js" />
@@ -1428,6 +1439,13 @@
     <Content Include="Content\Display\Style\Popup.css" />
     <Content Include="Content\Display\Style\Product.css" />
     <Content Include="Content\Display\Style\Product_RS.css" />
+    <Content Include="Content\Display\Style\update\call.css" />
+    <Content Include="Content\Display\Style\update\owl.carousel.min.css" />
+    <Content Include="Content\Display\Style\update\owl.theme.default.min.css" />
+    <Content Include="Content\Display\Style\update\Popup_ud.css" />
+    <Content Include="Content\Display\Style\update\product.css" />
+    <Content Include="Content\Display\Style\update\sale.css" />
+    <Content Include="Content\Display\Style\update\times.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1630,6 +1648,8 @@
     <Content Include="Views\Mapsad\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutError.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Footer\callPartial.cshtml" />
+    <Content Include="Views\Product\detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1874,6 +1874,188 @@ namespace Bonnuoc.Controllers.Display.Section.Product
             Session["Search"] = "";
             return View();
         }
+        public ActionResult tag(string tag)
+        {
+            string[] Mang1 = StringClass.COnvertToUnSign1(tag.ToUpper()).Split('-');
+            string chuoitag = "";
+            for (int i = 0; i < Mang1.Length; i++)
+            {
+                if (i == 0)
+                    chuoitag += Mang1[i];
+                else
+                    chuoitag += " " + Mang1[i];
+            }
+            int dem = 1;
+            string name = "";
+            List<tblProduct> ListProducts = (from c in db.tblProducts select c).ToList();
+            List<tblProduct> listProduct = ListProducts.FindAll(delegate (tblProduct math)
+            {
+                string kd = StringClass.COnvertToUnSign1(math.Keyword.ToUpper());
+                if (StringClass.COnvertToUnSign1(math.Keyword.ToUpper()).Contains(chuoitag.ToUpper()))
+                {
 
+                    string[] Manghienthi = math.Keyword.Split(',');
+                    foreach (var item in Manghienthi)
+                    {
+                        if (dem == 1)
+                        {
+                            var kiemtra = StringClass.COnvertToUnSign1(item.ToUpper()).Contains(chuoitag.ToUpper());
+                            if (kiemtra == true)
+                            {
+                                name = item;
+                                dem = 0;
+
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+
+                else
+                    return false;
+            }
+            );
+            ViewBag.Name = name;
+            ViewBag.Title = "<title>" + name + "</title>";
+            ViewBag.dcTitle = "<meta name=\"DC.title\" content=\"" + name + "\" />";
+            ViewBag.Description = "<meta name=\"description\" content=\"" + name + "\"/>";
+            ViewBag.Keyword = "<meta name=\"keywords\" content=\"" + name + "\" /> ";
+            string meta = "";
+            meta += "<meta itemprop=\"name\" content=\"" + name + "\" />";
+            meta += "<meta itemprop=\"url\" content=\"" + Request.Url.ToString() + "\" />";
+            meta += "<meta itemprop=\"description\" content=\"" + tag + "\" />";
+            meta += "<meta itemprop=\"image\" content=\"\" />";
+            meta += "<meta property=\"og:title\" content=\"" + name + "\" />";
+            meta += "<meta property=\"og:type\" content=\"product\" />";
+            meta += "<meta property=\"og:url\" content=\"" + Request.Url.ToString() + "\" />";
+            meta += "<meta property=\"og:image\" content=\"\" />";
+            meta += "<meta property=\"og:site_name\" content=\"http://bonnuoc.vn\" />";
+            meta += "<meta property=\"og:description\" content=\"" + name + "\" />";
+            meta += "<meta property=\"fb:admins\" content=\"\" />";
+
+
+
+            string chuoi = "";
+            var listProduct1 = listProduct.Where(p => p.Active == true).OrderBy(p => p.PriceSale).ToList();
+             chuoi += "<div class=\"cls_Product\">";
+
+            chuoi += " <div class=\"Content_ClsProduct\">";
+            chuoi += "<div class=\"ClsProduct_Tear\">";
+            chuoi += "<div class=\"nVar_01\">";
+            chuoi += "<div class=\"Left_Nvar_01\">";
+            chuoi += "<h3>Bồn đứng</h3>";
+            chuoi += "</div>";
+            chuoi += "<div class=\"Center_Nvar_01\">";
+            chuoi += "</div>";
+            chuoi += "<div class=\"Right_Nvar_01\">";
+            chuoi += "<div class=\"stairs\">";
+            chuoi += "<a href=\"#neo-1\" title=\"Xuống tầng\"><i class=\"down\"></i> </a>";
+            chuoi += "<i class=\"Elevator\"></i>";
+            chuoi += "<a href=\"#neo-1\" title=\"Lên tầng\"><i class=\"up\"></i></a>";
+            chuoi += "</div>";
+            chuoi += "</div>";
+            chuoi += "</div>";
+            chuoi += "<div class=\"List_ProductHomes\">";
+            chuoi += " <div id=\"vn11\">";
+
+
+            foreach (var item in listProduct1)
+            {
+                int idcate = int.Parse(item.idCate.ToString());
+                string imagemanu = "";
+                var listManu = from a in db.tblConnectManuProducts join b in db.tblManufactures on a.idManu equals b.id where a.idCate == idcate select b;
+                foreach (var item1 in listManu)
+                {
+                    imagemanu = item1.Images;
+
+                }
+                chuoi += "<div class=\"Tear_1\">";
+                chuoi += "<div class=\"OrderNow\">";
+                chuoi += "<a rel=\"miendatwebPopup\" href=\"#popup_content\" onclick=\"javascript:return CreateOrder(" + item.id + ");\" title=\"Đặt hàng\">Đặt hàng</a>";
+                chuoi += "</div>";
+                if (item.New == true)
+                    chuoi += "<div class=\"Note\"></div>";
+                chuoi += "<div class=\"Manu\" style=\"background:url(" + imagemanu + ") no-repeat\"></div>";
+                chuoi += "<div class=\"img\">";
+                chuoi += "<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\"><img src=\"" + item.ImageLinkThumb + "\" alt=\"" + item.Name + "\" /></a>";
+                chuoi += " </div>";
+                chuoi += "<h3><a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\" class=\"Name\">" + item.Name + "</a></h3>";
+                chuoi += "<div class=\"Box_Tear\">";
+                chuoi += "<div class=\"Left_BoxTear\">";
+                chuoi += "<span class=\"PriceSale\">" + string.Format("{0:#,#}", item.PriceSale) + "đ</span>";
+                chuoi += "<span class=\"Price\">" + string.Format("{0:#,#}", item.Price) + "đ</span>";
+                chuoi += "</div>";
+                chuoi += "<div class=\"Right_BoxTear\">";
+                chuoi += " <span class=\"Quarantee\">Bảo hành <span>" + item.Warranty + "</span> năm</span>";
+                if (item.Material == 0)
+                    chuoi += " <span class=\"Material\">Inox SUS304</span>";
+                else
+                    chuoi += " <span class=\"Material\">Nhựa</span>";
+                chuoi += "  </div>";
+                chuoi += " </div>";
+
+                chuoi += "  </div>";
+
+            }
+
+            chuoi += "</div>";
+
+            ViewBag.chuoi = chuoi;
+            return View();
+        }
+        public ActionResult detail(string tag)
+        {
+            var config = db.tblConfigs.FirstOrDefault();
+
+            ViewBag.Title = "<title> " + config.TitleSale + "</title>";
+            ViewBag.Description = "<meta name=\"description\" content=\"" + config.TitleSale + "\"/>";
+            ViewBag.Keyword = "<meta name=\"keywords\" content=\"" + config.TitleSale + "\" /> ";
+
+            var listProductSalePriority = db.tblProducts.Where(p => p.Active == true && p.Priority == true && p.ProductSale == true).OrderBy(p => p.Ord).ToList();
+            StringBuilder resultPriority = new StringBuilder();
+            foreach (var item in listProductSalePriority)
+            {
+                resultPriority.Append("<div class=\"item\">");
+                resultPriority.Append("<div class=\"contentItem\">");
+                resultPriority.Append("<div class=\"img\">");
+                resultPriority.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\"><img src=\"" + item.ImageLinkThumb + "\" title=\"" + item.Name + "\" /></a>");
+                resultPriority.Append("</div>");
+                resultPriority.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\" class=\"name\">" + item.Name + "</a>");
+                resultPriority.Append("<div class=\"buy\">");
+                resultPriority.Append("<span class=\"note\">Giá chỉ từ</span>");
+                resultPriority.Append("<span class=\"price\">" + string.Format("{0:#,#}", item.PriceSale) + "<samp>đ</samp></span>");
+                resultPriority.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\">Xem ngay  &raquo;</a>");
+                resultPriority.Append("</div>");
+                resultPriority.Append("</div>");
+                resultPriority.Append("</div>");
+            }
+            ViewBag.resultPriority = resultPriority.ToString();
+
+
+            
+
+            var listProductSale = db.tblProducts.Where(p => p.Active == true && p.ProductSale == true).OrderBy(p => p.idCate).ToList();
+            StringBuilder resultSale = new StringBuilder();
+            foreach (var item in listProductSale)
+            {
+                resultSale.Append("<div class=\"item\">");
+                resultSale.Append("<div class=\"contentItem\">");
+                resultSale.Append("<div class=\"img\">");
+                resultSale.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\"><img src=\"" + item.ImageLinkThumb + "\" title=\"" + item.Name + "\" /></a>");
+                resultSale.Append("</div>");
+                resultSale.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\" class=\"name\">" + item.Name + "</a>");
+                resultSale.Append("<div class=\"buy\">");
+                resultSale.Append("<span class=\"note\">Giá chỉ từ</span>");
+                resultSale.Append("<span class=\"price\">" + string.Format("{0:#,#}", item.PriceSale) + "<samp>đ</samp></span>");
+                resultSale.Append("<a href=\"/san-pham/" + item.Tag + "\" title=\"" + item.Name + "\">Xem ngay  &raquo;</a>");
+                resultSale.Append("</div>");
+                resultSale.Append("</div>");
+
+                resultSale.Append("</div>");
+            }
+            ViewBag.resultSale = resultSale.ToString();
+            return View(config);
+        }
     }
 }

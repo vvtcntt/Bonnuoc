@@ -26,27 +26,32 @@
     <link href="~/Content/Display/Style/Order.css" rel="stylesheet" />
     <link href="~/Content/Display/Style/Order_Rs.css" rel="stylesheet" />
     <link href="~/Content/Display/Style/Popup.css" rel="stylesheet" />
-     <link href="~/Content/Display/Style/contact_Rs.css" rel="stylesheet" />
+    <link href="~/Content/Display/Style/contact_Rs.css" rel="stylesheet" />
     <script src="~/Content/Display/Js/jquery-2.1.4.js"></script>
     <script src="~/Content/Display/Js/Scroll.js"></script>
     <script src="~/Content/Display/Js/jquery.combinedScroll.js"></script>
     <script src="~/Content/Display/Js/PopupDetailProduct.js"></script>
+    <link href="~/Content/Display/Style/update/call.css" rel="stylesheet" />
+    <link href="~/Content/Display/Style/update/Popup_ud.css" rel="stylesheet" />
+    <link href="~/Content/Display/Style/update/product.css" rel="stylesheet" />
+    <link href="~/Content/Display/Style/update/sale.css" rel="stylesheet" />
+    <link href="~/Content/Display/Style/update/times.css" rel="stylesheet" />
     <script>
-    $(function () {
-        $('a[href*=#]:not([href=#])').click(function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
                 }
-            }
+            });
         });
-    });
     </script>
     <style>
         .item_li1:hover {
@@ -58,58 +63,60 @@
             }
     </style>
     <script type="text/javascript">
-    jQuery(document).ready(function ($) {
+        jQuery(document).ready(function ($) {
 
-        // Hook up the current state to the nav bar
-        $('.page-navigation').onePageNav();
+            // Hook up the current state to the nav bar
+            $('.page-navigation').onePageNav();
 
-    });
+        });
     </script>
     <script type="text/javascript">
-		 		function Tab(an)
-				{
-					var array = an.split('-');
-					 var t1=array[0];
-					 var t2 = array[1];
-  					$('div#v'+t2).hide();
-					$('a.t'+t2).removeClass('set');
-					$(this).addClass('set');
-					$('a.t'+t1).addClass('set');
-					$('div#v'+t1).show();
-					return false;
-				}
+        function Tab(an) {
+            var array = an.split('-');
+            var t1 = array[0];
+            var t2 = array[1];
+            $('div#v' + t2).hide();
+            $('a.t' + t2).removeClass('set');
+            $(this).addClass('set');
+            $('a.t' + t1).addClass('set');
+            $('div#v' + t1).show();
+            return false;
+        }
     </script>
-    
+
 
 
 </head>
 <body>
     <header>
-      @{Html.RenderAction("partialControlHeader", "Header");}
+        @{Html.RenderAction("partialControlHeader", "Header");}
     </header>
     <section>
         @RenderBody()
-      
+
     </section>
     <footer>
         @{Html.RenderAction("ControlFooter", "Footer");}
+        @{Html.RenderAction("callPartial", "Footer");}
+
     </footer>
     <div id="popup_content" class="popup">
 
 
 
     </div>
+
     <script src="~/Scripts/jquery.popupMiendatweb.min.js"></script>
     <script type="text/javascript">
 
         function CreateOrder(id) {
             var quanlity = 1;
             $.post("/Order/Create", { "idp": id, "ord": quanlity },
-               function (data) {
-                   $("#popup_content").html(data.result);
-                   $("#Order_Toolbars a.icon span").html( data.sl);
-                   $("#List_OrderToolbar #dat").html(data.chuoi1)
-               });
+                function (data) {
+                    $("#popup_content").html(data.result);
+                    $("#Order_Toolbars a.icon span").html(data.sl);
+                    $("#List_OrderToolbar #dat").html(data.chuoi1)
+                });
 
             return false;
         }
@@ -118,27 +125,27 @@
             var ord = $(".txtOrd" + pId).val();
 
             $.post("/Order/UpdatOder", { "id": pId, "ord": ord },
-               function (data) {
-                   $('#Gia' + pId).html(data.gia + " vnd");
-                   $(".tt").html(data.tt);
-                   htgh
-                   $(".htgh").html("Có " + data.sl + " sản phẩm");
+                function (data) {
+                    $('#Gia' + pId).html(data.gia + " vnd");
+                    $(".tt").html(data.tt);
+                    htgh
+                    $(".htgh").html("Có " + data.sl + " sản phẩm");
 
-               });
+                });
             return false;
         }
         function DeleteOrder(pId) {
             $.post("/Order/DeleteOrder", { "id": pId },
-               function (data) {
+                function (data) {
 
-                   $('.row' + pId).html(data.thongtin);
-                   $(".tt").html(data.tt);
-                   $(".count").html(data.count);
-                   $("#Order_Toolbars a.icon span").html(data.sl);
-                   $("#List_OrderToolbar #dat").html(data.chuoi1)
+                    $('.row' + pId).html(data.thongtin);
+                    $(".tt").html(data.tt);
+                    $(".count").html(data.count);
+                    $("#Order_Toolbars a.icon span").html(data.sl);
+                    $("#List_OrderToolbar #dat").html(data.chuoi1)
 
- 
-               });
+
+                });
             return false;
         }
 
@@ -160,6 +167,34 @@
                 closeButton: ".close_popup", //khai báo nút close cho popup
                 scroll: false, //cho phép scroll khi mở popup, mặc định là không cho phép
                 onClose: function () {
+                }
+            });
+        });
+        function close_popup() {
+            $("#popup_content").css("display", "none");
+            $("#lean_overlay").css("display", "none");
+
+        }
+    </script>
+
+    <script src="~/Content/Display/Js/update/jquery.popupMiendatweb.min.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        $(function () {
+            /* khởi tạo popup */
+            $('input[rel*=miendatwebPopup]').showPopup({
+                top: 200, //khoảng cách popup cách so với phía trên
+                closeButton: ".close_popup", //khai báo nút close cho popup
+                scroll: false, //cho phép scroll khi mở popup, mặc định là không cho phép
+                onClose: function () {
+                    //sự kiện cho phép gọi sau khi đóng popup, cho phép chúng ta gọi 1 số sự kiện khi đóng popup, bạn có thể để null ở đây
+                }
+            });
+            $('a[rel*=miendatwebPopup]').showPopup({
+                top: 200, //khoảng cách popup cách so với phía trên
+                closeButton: ".close_popup", //khai báo nút close cho popup
+                scroll: false, //cho phép scroll khi mở popup, mặc định là không cho phép
+                onClose: function () {
+                    //sự kiện cho phép gọi sau khi đóng popup, cho phép chúng ta gọi 1 số sự kiện khi đóng popup, bạn có thể để null ở đây
                 }
             });
         });

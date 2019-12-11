@@ -8,11 +8,11 @@
                     Đăng ký nhận chương trình khuyến mại bồn nước <a href="" title="">Đăng ký</a>
                 </div>
                 <div id="Right_Nvar_TopFooter">
-@using (Html.BeginForm("Command", "Footer", FormMethod.Post))
-{
-                    <input type="text" required="required" class="txtName" name="txtName" id="txtName" placeholder="Nhập họ tên" /><input type="number" class="txtMobile" required="required" name="txtMobile" id="txtMobile" placeholder="Nhập số điện thoại" />
-                    <input type="email" class="txtEmail" name="txtEmail" id="txtEmail" placeholder="Nhập Email" required="required" />
-                    <button type="submit" name="btnSubmit" class="btnSubmit" id="btnSubmit">Đăng ký</button>
+                    @using (Html.BeginForm("Command", "Footer", FormMethod.Post))
+                    {
+                        <input type="text" required="required" class="txtName" name="txtName" id="txtName" placeholder="Nhập họ tên" /><input type="number" class="txtMobile" required="required" name="txtMobile" id="txtMobile" placeholder="Nhập số điện thoại" />
+                        <input type="email" class="txtEmail" name="txtEmail" id="txtEmail" placeholder="Nhập Email" required="required" />
+                        <button type="submit" name="btnSubmit" class="btnSubmit" id="btnSubmit">Đăng ký</button>
                     }
 
                 </div>
@@ -45,8 +45,8 @@
                         <span class="Title">Chính sách dịch vụ</span>
                         <ul>
                             @Html.Raw(ViewBag.chinhsach)
-                            
-                        
+
+
                         </ul>
                     </div>
                     <div class="Tear_Ft">
@@ -61,7 +61,7 @@
                             @Html.Raw(ViewBag.chuoibaogia)
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -83,23 +83,36 @@
                     </div>
                     <div class="Tear_ft_1">
                         <div class="nVar_Tear_ft_1">
-                            <span class="name_ft">Hà Nội <span>(trụ sở chính)</span></span>
+                            <span class="name_ft">Hà Nội - 391 Nguyễn Xiển <span></span></span>
                         </div>
                         <div class="Content_Tear_ft_1">
-                            <span class="ct_ft">Địa chỉ : <span>@Model.Address</span></span>
-                            <span class="ct_ft">Điện thoại : <span>@Model.MobileIN</span></span>
-                            <span class="ct_ft">Hotline :<span>@Model.HotlineIN</span> - @Model.HotlineOUT</span>
+                            <span class="ct_ft">Địa chỉ : <span>@Model.Address1</span></span>
+                            <span class="ct_ft">Điện thoại : <span>@Model.Mobile1</span></span>
+                            <span class="ct_ft">Hotline :<span>@Model.Hotline1</span></span>
                             <span class="ct_ft">Email: <span>@Model.Email</span></span>
                             <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
 
                         </div>
                     </div>
-                    @Html.Raw(ViewBag.chuoi) 
+                    <div class="Tear_ft_1">
+                        <div class="nVar_Tear_ft_1">
+                            <span class="name_ft">Hà Nội - 170 Phạm Văn Đồng</span>
+                        </div>
+                        <div class="Content_Tear_ft_1">
+                            <span class="ct_ft">Địa chỉ : <span>@Model.Address2</span></span>
+                            <span class="ct_ft">Điện thoại : <span>@Model.Mobile2</span></span>
+                            <span class="ct_ft">Hotline :<span>@Model.Hotline2</span></span>
+                            <span class="ct_ft">Email: <span>@Model.Email</span></span>
+                            <span class="Map_ft"><span class="icon"></span> Bản đồ đường đi</span>
+
+                        </div>
+                    </div>
+                    @Html.Raw(ViewBag.chuoi)
                 </div>
 
                 @Html.Raw(Model.Content)
-                 
-                
+
+
             </div>
         </div>
         <div id="Info_Company">
@@ -114,32 +127,34 @@
     <div class="Clear"></div>
 
 </div>
- @if(Request.Browser.IsMobileDevice==false)
- {
-    @Html.Raw(Model.CodeChat)  
-      <script>
-    try {
-        var Tat_quangcao = localStorage.getItem("Tat_quangcao");
-        if (Tat_quangcao != null) {
-            if ((new Date).getDate() == new Date(parseInt(localStorage.getItem("Tat_quangcao"))).getDate()) {
-                open_motog = false;
-            }
-        }
-    } catch (e) { console.log(e) }
 
-    function Tatquangcao(obj) {
-        $(obj).parent().remove();
+@if (Request.Browser.IsMobileDevice == false)
+{
+    @Html.Raw(Model.CodeChat)
+    <script>
         try {
+            var Tat_quangcao = localStorage.getItem("Tat_quangcao");
+            if (Tat_quangcao != null) {
+                if ((new Date).getDate() == new Date(parseInt(localStorage.getItem("Tat_quangcao"))).getDate()) {
+                    open_motog = false;
+                }
+            }
+        } catch (e) { console.log(e) }
 
-            $('#Top_Banner').css({ 'height': '32px' });
-            $('#Content_Top_Banner').css({ 'position': 'relative', 'display': 'block' });
-            $('#adw').html();
+        function Tatquangcao(obj) {
+            $(obj).parent().remove();
+            try {
 
-            localStorage.setItem("Tat_quangcao", (new Date).getTime())
-        } catch (e) { console.log(e); }
-    }
-</script>
-     <style>
+                $('#Top_Banner').css({ 'height': '32px' });
+                $('#Content_Top_Banner').css({ 'position': 'relative', 'display': 'block' });
+                $('#adw').html();
+
+                localStorage.setItem("Tat_quangcao", (new Date).getTime())
+            } catch (e) { console.log(e); }
+        }
+
+/**/</script>
+    <style>
         #adwfooter {
             width: 100%;
             height: auto;
@@ -188,16 +203,16 @@
                 display: block;
             }
     </style>
-    if(ViewBag.Chuoiimg != null && ViewBag.Chuoiimg!="")
+    if (ViewBag.Chuoiimg != null && ViewBag.Chuoiimg != "")
     {
         <div id="adwfooter">
-        <div id="Banner_footer">
-            <div id="Content_Banner_Footer">
-                <span onclick="Tatquangcao(this)">×</span>
-                
-                @Html.Raw(ViewBag.Chuoiimg)
+            <div id="Banner_footer">
+                <div id="Content_Banner_Footer">
+                    <span onclick="Tatquangcao(this)">×</span>
+
+                    @Html.Raw(ViewBag.Chuoiimg)
+                </div>
             </div>
         </div>
-    </div>
     }
- }
+}

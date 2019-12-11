@@ -31,6 +31,8 @@ namespace Bonnuoc
             routes.MapRoute("TagProduct", "Tag/{Tag}/{*catchall}", new { controller = "Product", action = "Tag", tag = UrlParameter.Optional }, new { controller = "^P.*", action = "^Tag$" });
             routes.MapRoute("Tagcapacity", "TagCap/{Tag}/{*catchall}", new { controller = "Product", action = "TagCapacity", tag = UrlParameter.Optional }, new { controller = "^P.*", action = "^TagCapacity$" });
             routes.MapRoute("SearchProduct", "Search/{Tag}/{*catchall}", new { controller = "Product", action = "Search", tag = UrlParameter.Optional }, new { controller = "^P.*", action = "^Search$" });
+            routes.MapRoute(name: "ban-tin-khuyen-mai", url: "ban-tin-khuyen-mai", defaults: new { controller = "product", action = "detail" });
+ 
             routes.MapRoute(name: "He-thong-phan-phoi", url: "He-thong-phan-phoi", defaults: new { controller = "Agency", action = "ListAgency" });
             routes.MapRoute(name: "Gioi-thieu", url: "Gioi-thieu", defaults: new { controller = "Introduction", action = "Index" });
             routes.MapRoute(name: "Lien-he", url: "Lien-he", defaults: new { controller = "Contact", action = "Index" });
